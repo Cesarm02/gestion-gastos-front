@@ -1,0 +1,37 @@
+<mat-card>
+    <app-titulo-seccion [linkUrl] ="'/user/transaccion-add'" [nombreTitulo] ="'Transacciones'"> </app-titulo-seccion>
+    <div class="bootstrap-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form (ngSubmit)="formSubmit()">
+                        <mat-form-field class="w50 mr-2" appearance="outline">
+                            <mat-label> Cuenta </mat-label>
+                            <mat-select [(value)]="cuentaSelected">
+                                <mat-option *ngFor="let cuenta of cuentas" value="{{cuenta.cuentaId}}">
+                                    {{cuenta.cuentaId}} - {{cuenta.titulo}} : {{cuenta.totalCuenta}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="w50" appearance="outline">
+                            <mat-label> Categoria </mat-label>
+                            <mat-select [(value)]="categoriaSelected">
+                                <mat-option *ngFor="let categoria of categorias" value="{{categoria.categoriaId}}">
+                                    {{categoria.categoriaId}} - {{categoria.titulo}} 
+                                </mat-option>
+                                
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="container text-center ">
+                            <a class="mr-2" (click)="reloadPage()" color="primary" mat-raised-button>Recargar</a>
+                            <span></span>
+                            <button  mat-raised-button color="primary">Generar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <app-vista-transaccion [transacciones] ="transacciones"  *ngIf="showComponent"> </app-vista-transaccion>
+    </div>
+</mat-card>
