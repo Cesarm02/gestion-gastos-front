@@ -1,0 +1,53 @@
+<mat-card>
+    <app-titulo-agregar [linkUrl] ="'/user/cuenta'" [nombreTitulo] ="'Listado'"> </app-titulo-agregar>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="alert alert alert-secondary" role="alert">
+                    <h2 class="alert-heading">Título: {{cuenta.titulo}}</h2>
+                    <hr>
+                    <p>Id: {{cuenta.cuentaId}}</p>
+                    <hr>
+                    <p>Descripción: {{cuenta.descripcion}}</p>
+                    <hr>
+                    <p>Tipo: {{cuenta.tipo}}</p>
+                    <hr>
+                    <p>Total cuenta: ${{cuenta.totalCuenta}}</p>
+                    <hr>
+                    <p>Estado: {{cuenta.estado ? 'Activo' : 'Inactivo'}}</p>
+                </div>
+          </div>
+          <hr>
+          <mat-toolbar class="color">
+            <span>Transacciones de la cuenta </span>
+          </mat-toolbar>
+          <hr>
+          <div class="container table-responsive">
+            <table class="table table-striped table-bordered row-border hover" datatable [dtOptions] = "dtOptions" [dtTrigger]= "dtTrigger" >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                    <th>Cuenta</th>
+                    <th>Categoria</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let transaccion of transacciones" >
+                    <tr>
+                      <td>{{transaccion.transaccionId}}</td>
+                      <td>{{formatearFecha(transaccion.fecha)}}</td>
+                      <td>{{transaccion.descripcion}}</td>
+                      <td>{{transaccion.valor}}</td>
+                      <td>{{transaccion.cuenta.cuentaId}}. {{transaccion.cuenta.titulo}}</td>
+                      <td>{{transaccion.categoria.categoriaId}}. {{transaccion.categoria.titulo}}</td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

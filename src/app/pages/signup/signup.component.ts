@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
@@ -19,13 +20,12 @@ export class SignupComponent implements OnInit {
     telefono : ''
   }
 
-  constructor(private userService:UserService, private snackBar: MatSnackBar) { }
+  constructor(private userService:UserService, private snackBar: MatSnackBar, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   formSubmit(){
-    console.log(this.user);
     if(this.user.username == '' || this.user.username == null){
       this.snackBar.open('El nombre de usuario es requerido', 'Aceptar', {
         duration : 3000,
@@ -69,7 +69,8 @@ export class SignupComponent implements OnInit {
     this.userService.añadirUsuario(this.user).subscribe(
       (data) => {
         console.log(data);
-        Swal.fire("Usuario guardado", "Usuario registrado con existo en el sistema", 'success');    
+        Swal.fire("Usuario guardado", "Usuario registrado con existo en el sistema", 'success'); 
+        this.router.navigate(['/login']);
       },(error) => {
         console.log(error);
         this.snackBar.open('Ha ocurrido un error en el sistema', 'Aceptar', {

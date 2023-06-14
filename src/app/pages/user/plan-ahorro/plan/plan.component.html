@@ -1,0 +1,70 @@
+<mat-card>
+    <mat-toolbar class="color">
+        <span>Plan ahorro</span>
+      <span class="boton-derecho"></span>
+
+        <button  mat-icon-button  routerLink="/user/plan-ahorro-historico">
+            <mat-icon>assessment</mat-icon> 
+          </button> Historico
+      </mat-toolbar>
+    <div class="bootstrap-wrapper">
+        <div class="container">
+            <div class="row mt">
+                <div class="col-md-8 offset-md-2">
+                    <form (ngSubmit)="formSubmit()">
+                        <mat-form-field class="w50 mr-2" appearance="outline">
+                            <mat-label> Meta </mat-label>
+                            <input 
+                                type="number"
+                                required 
+                                autofocus
+                                name="meta"
+                                [(ngModel)] ="meta"
+                                matInput
+                                placeholder="Ingresa la meta"
+                            >
+                        </mat-form-field>
+                        <mat-form-field class="w50 " appearance="outline">
+                            <mat-label> Meses </mat-label>
+                            <input 
+                                type="number"
+                                autofocus
+                                name="meses"
+                                [(ngModel)] ="meses"
+                                matInput
+                                placeholder="Ingresa los meses"
+                        >
+                        </mat-form-field>
+                        <mat-form-field class="w100 mr-2" appearance="outline">
+                            <mat-label> Ahorro mensual</mat-label>
+                            <input 
+                                type="number"
+                                autofocus
+                                name="ahorro"
+                                [(ngModel)] ="ahorro"
+                                matInput
+                                placeholder="Ingresa el valor a ahorrar"
+                            >
+                        </mat-form-field>
+                        
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label> Objetivo </mat-label>
+                            <textarea 
+                                name="objetivo" 
+                                matInput
+                                [(ngModel)] ="objetivo"
+                                placeholder="Ingrese el objetivo"
+                                rows="5">
+                            </textarea>
+                        </mat-form-field>
+                        <h4>Nota: Debes agregar la meta y algúno de los dos valores (Meses o ahorro)</h4>
+                        <div class="container text-center mt15">
+                            <span></span>
+                            <button mat-raised-button color="primary">Calcular</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>

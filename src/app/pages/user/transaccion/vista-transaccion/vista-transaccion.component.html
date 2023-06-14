@@ -23,12 +23,14 @@
                       <td>{{transaccion.cuenta.cuentaId}}. {{transaccion.cuenta.titulo}}</td>
                       <td>{{transaccion.categoria.categoriaId}}. {{transaccion.categoria.titulo}}</td>
                       <td>
-                        <button routerLink="/user/cuenta-edit/{{transaccion.transaccionId}}" mat-icon-button class="example-icon ">
+                        <button routerLink="/user/transaccion-edit/{{transaccion.transaccionId}}" mat-icon-button class="example-icon ">
                           <mat-icon>edit</mat-icon>
                         </button>
-                        <button routerLink="/user/cuenta-view/{{transaccion.transaccionId}}" mat-icon-button class="example-icon" >
-                          <mat-icon>remove_red_eye</mat-icon>
+                       
+                        <button (click)="eliminarTransaccion(transaccion.transaccionId)" mat-icon-button class="example-icon" >
+                          <mat-icon class="mat-warn">delete</mat-icon>
                         </button>
+                        
                       </td>
                     </tr>
                   </ng-container>

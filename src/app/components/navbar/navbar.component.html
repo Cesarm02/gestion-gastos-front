@@ -1,14 +1,37 @@
 <mat-toolbar color="primary">
-    <a [routerLink]="'/'" 
+    <a     [routerLink]="rol === 'Normal' ? '/user/inicio' : (rol === 'Admin' ? '/admin' : '/login')"
      mat-icon-button class="example-icon" arial-label="Example icon-button with menu icon">
         <mat-icon>home</mat-icon>
     </a>
-    <span>Portal de gestión</span>
+    <span>PG</span>
     <span class="example-spacer"></span>
-    <a [routerLink] = "'/login'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <a 
+        *ngIf = "!login.isLoggedIn()"
+        style="margin-right: 50px;"
+        [routerLink] = "'/login'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         Iniciar sesión
     </a>
-    <a [routerLink] = "'/signup'" mat-icon-button class="example-icon favorite-icon mr-20 ml70" aria-label="Example icon-button with heart icon">
+    <a 
+        *ngIf = "!login.isLoggedIn()"
+        style = "margin-right: 50px;"
+        [routerLink] = "'/signup'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         Registrarse
     </a>
+    <a 
+        *ngIf = "login.isLoggedIn()"
+        (click) = "logout()"
+        style="margin-right: 50px;"
+        mat-icon-button class="example-icon favorite-icon mr-20 ml70" aria-label="Example icon-button with heart icon">
+        Cerrar sesión
+    </a>
+
+    <button 
+        *ngIf = "isLoggedIn && user"
+        mat-button
+        routerLink = "/admin/profile"
+        style = "margin-right: 10px;"
+        class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        {{ user.username }}
+    </button>
+    
 </mat-toolbar>

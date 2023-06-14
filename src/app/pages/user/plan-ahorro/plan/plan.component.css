@@ -1,0 +1,23 @@
+.w100{
+    width: 100%;
+}
+
+.mr-2{
+    margin-right: 20px;
+}
+.w50{
+    width: 48%;
+}
+.w45{
+    width: 40%;
+}
+.color{
+    background: #B0BEC5;
+    color: #fff;
+}
+.boton-derecho {
+    flex: auto;
+  }
+.mt{
+    margin-top: 20px;
+}

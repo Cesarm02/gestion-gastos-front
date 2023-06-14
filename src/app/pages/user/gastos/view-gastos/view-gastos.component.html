@@ -1,0 +1,45 @@
+<mat-card>
+    <app-titulo-seccion [linkUrl] ="'/user/add-pagos'" [nombreTitulo] ="'Pagos'"> </app-titulo-seccion>
+    <div class="bootstrap-wrapper">
+        <div class="container table-responsive">
+            <table class="table table-striped table-bordered row-border hover" datatable [dtOptions] = "dtOptions" [dtTrigger]= "dtTrigger" >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Fecha</th>
+                    <th>Valor esperado</th>
+                    <th>Valor real</th>
+                    <th>Diferencia</th>
+                    <th>Mes</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let gasto of gastos" >
+                    <tr>
+                      <td>{{gasto.agendaGastosId}}</td>
+                      <td>{{gasto.titulo}}</td>
+                      <td>{{formatearFecha(gasto.fecha)}}</td>
+                      <td>{{gasto.valorEsperado}}</td>
+                      <td>{{gasto.valorReal}}</td>
+                      <td>{{gasto.diferencia > 0 ? 'Mayor al esperado en ' + gasto.diferencia : (gasto.diferencia < 0 ? 'Menor al esperado en ' + gasto.diferencia : 'Sin diferencia')}}</td>
+                      <td>{{gasto.mes}}</td>
+                      <td>{{gasto.descripcion}}</td>
+                      <td>
+                        <button routerLink="/user/edit-pagos/{{gasto.agendaGastosId}}" mat-icon-button class="example-icon ">
+                            <mat-icon>edit</mat-icon>
+                          </button>
+                         
+                          <button (click)="eliminarTransaccion(gasto.agendaGastosId)" mat-icon-button class="example-icon" >
+                            <mat-icon class="mat-warn">delete</mat-icon>
+                          </button>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</mat-card>

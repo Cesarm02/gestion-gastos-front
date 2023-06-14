@@ -3,11 +3,20 @@
         <div mat-subheader>
             Menú
         </div>
-        <button mat-list-item>
-            <mat-icon mat-list-icon>Home</mat-icon> Inicio
+        <button mat-list-item  routerLink = "/admin/backup">
+            <mat-icon mat-list-icon>backup</mat-icon> Backup
         </button>
         <button mat-list-item routerLink="/admin/profile">
-            <mat-icon mat-list-icon>account_circle</mat-icon> Pefil
+            <mat-icon mat-list-icon>account_circle</mat-icon> Perfil
+        </button>
+        <button mat-list-item routerLink="/admin/usuarios">
+            <mat-icon mat-list-icon>account_box</mat-icon> Usuarios 
+        </button>
+        <button mat-list-item routerLink="/admin/log">
+            <mat-icon mat-list-icon>assignment</mat-icon> Auditoría 
+        </button>
+        <button mat-list-item (click)="salir()">
+            <mat-icon mat-list-icon>logout</mat-icon> Salir 
         </button>
     </mat-action-list>
 </mat-card>

@@ -17,4 +17,13 @@ export class CategoriaService {
     return this.http.post(`${baseUrl}/categoria/`, categoria);
   }
 
+  public editarCategoria(categoria:any){
+    return this.http.put(`${baseUrl}/categoria/`, categoria);
+  }
+
+  public obtenerCategoria(categoriaId:any){
+    return this.http.get(`${baseUrl}/categoria/`+categoriaId);
+
+  }
+
 }

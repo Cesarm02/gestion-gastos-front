@@ -3,7 +3,61 @@
     <mat-card-content>
         <div class="bootstrap-wrapper">
             <div class="container">
-                
+                <mat-card-content>
+                    <div class="bootstrap-wrapper">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <form (ngSubmit)="formSubmit()">
+                                    
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Descripción </mat-label>
+                                        <textarea 
+                                            name="descripcion" 
+                                            matInput
+                                            [(ngModel)] ="transaccion.descripcion"
+                                            placeholder="Ingrese la descripción"
+                                            rows="5">
+                                        </textarea>
+                                    </mat-form-field>
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Valor </mat-label>
+                                        <input 
+                                            type="number"
+                                            required 
+                                            autofocus
+                                            name="valor"
+                                            [(ngModel)] ="transaccion.valor"
+                                            matInput
+                                            placeholder="Ingresa el valor">
+                                    </mat-form-field>
+                                    <h4> Nota: El valor puede positivo equivale a ganancia y negativo a gasto</h4>
+                                    <mat-form-field class="w50 mr-2" appearance="outline">
+                                        <mat-label> Cuenta </mat-label>
+                                        <mat-select required [(value)]="cuentaSelected" >
+                                            <mat-option *ngFor="let cuenta of cuentas" value="{{cuenta.cuentaId}}">
+                                                {{cuenta.cuentaId}} - {{cuenta.titulo}} : {{cuenta.totalCuenta}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field class="w50" appearance="outline">
+                                        <mat-label> Categoria </mat-label>
+                                        <mat-select required [(value)]="categoriaSelected">
+                                            <mat-option *ngFor="let categoria of categorias" value="{{categoria.categoriaId}}">
+                                                {{categoria.categoriaId}} - {{categoria.titulo}} 
+                                            </mat-option>
+                                            
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div class="container text-center mt15">
+                                        <a class="mr-2" routerLink="/user/transaccion" color="warn" mat-raised-button>Cancel</a>
+                                        <span></span>
+                                        <button mat-raised-button color="primary">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
           </div>
         </div>
     </mat-card-content>

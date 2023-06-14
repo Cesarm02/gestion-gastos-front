@@ -1,0 +1,65 @@
+<mat-card>
+    <app-titulo-agregar [linkUrl] ="'/user/cuenta'" [nombreTitulo] ="'Nueva cuenta'"> </app-titulo-agregar>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <mat-card-content>
+                    <div class="bootstrap-wrapper">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <form (ngSubmit)="formSubmit()">
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Título </mat-label>
+                                        <input 
+                                            required
+                                            type="text" 
+                                            autofocus
+                                            name="titulo"
+                                            [(ngModel)] ="cuenta.titulo"
+                                            matInput
+                                            placeholder="Ingresa el título">
+                                    </mat-form-field>
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Descripción </mat-label>
+                                        <textarea 
+                                            name="descripcion" 
+                                            matInput
+                                            [(ngModel)] ="cuenta.descripcion"
+                                            placeholder="Ingrese la descripción"
+                                            rows="5">
+                                        </textarea>
+                                    </mat-form-field>
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Tipo </mat-label>
+                                        <input 
+                                            type="text" 
+                                            autofocus
+                                            name="tipo"
+                                            [(ngModel)] ="cuenta.tipo"
+                                            matInput
+                                            placeholder="Ingresa el tipo">
+                                    </mat-form-field>
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Total </mat-label>
+                                        <input 
+                                            type="number" 
+                                            autofocus
+                                            name="total"
+                                            [(ngModel)] ="cuenta.total"
+                                            matInput
+                                            placeholder="Ingresa el total">
+                                    </mat-form-field>
+                                    <div class="container text-center mt15">
+                                        <a class="mr-2" routerLink="/user/cuenta" color="warn" mat-raised-button>Cancel</a>
+                                        <span></span>
+                                        <button mat-raised-button color="primary">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+          </div>
+        </div>
+    </mat-card-content>
+</mat-card>

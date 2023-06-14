@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>
+            Menú
+        </div>
+        <button mat-list-item  routerLink = "/user/inicio">
+            <mat-icon mat-list-icon>home</mat-icon> Inicio
+        </button>
+        <button mat-list-item routerLink="/user/profile">
+            <mat-icon mat-list-icon>account_circle</mat-icon> Perfil
+        </button>
+        <button mat-list-item routerLink="/user/categoria">
+            <mat-icon mat-list-icon>list</mat-icon> Categorías
+        </button>
+        <button mat-list-item routerLink="/user/cuenta">
+            <mat-icon mat-list-icon>credit_card</mat-icon> Cuentas
+        </button>
+        <button mat-list-item routerLink="/user/transaccion">
+            <mat-icon  mat-list-icon>account_balance</mat-icon> Transacción
+        </button>
+        <button mat-list-item routerLink="/user/plan-ahorro">
+            <mat-icon mat-list-icon>note_add</mat-icon> Plan ahorro
+        </button>
+        <button mat-list-item routerLink="/user/pagos">
+            <mat-icon mat-list-icon>receipt</mat-icon> Agenda pagos
+        </button>
+        <button mat-list-item routerLink="/user/log">
+            <mat-icon  mat-list-icon>assessment</mat-icon> Errores
+        </button>
+        <button mat-list-item (click)="salir()">
+            <mat-icon mat-list-icon>logout</mat-icon> Salir 
+        </button>
+    </mat-action-list>
+</mat-card>

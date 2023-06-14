@@ -1,0 +1,86 @@
+<mat-card>
+    <app-titulo-agregar [linkUrl] ="'/user/pagos'" [nombreTitulo] ="'Editar pago'"> </app-titulo-agregar>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <mat-card-content>
+                    <div class="bootstrap-wrapper">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <form (ngSubmit)="formSubmit()">
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Título </mat-label>
+                                        <input 
+                                            type="text"
+                                            required 
+                                            autofocus
+                                            name="titulo"
+                                            [(ngModel)] ="gasto.titulo"
+                                            matInput
+                                            placeholder="Ingresa el título">
+                                    </mat-form-field>
+                                    <mat-form-field class="w50 mr-2" appearance="outline">
+                                        <mat-label> Fecha </mat-label>
+                                        <input 
+                                            type="date"
+                                            required 
+                                            autofocus
+                                            name="fecha"
+                                            [(ngModel)] ="gasto.fecha"
+                                            matInput
+                                            placeholder="Ingresa la fecha">
+                                    </mat-form-field>
+                                    <mat-form-field class="w50" appearance="outline">
+                                        <mat-label> Mes </mat-label>
+                                        <mat-select required [(value)]="mesSelected" >
+                                            <mat-option *ngFor="let mes of meses" value="{{mes.id}}">
+                                                {{mes.mes}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field class="w50 mr-2" appearance="outline">
+                                        <mat-label> Valor real </mat-label>
+                                        <input 
+                                            type="number"
+                                            required 
+                                            autofocus
+                                            name="valorReal"
+                                            [(ngModel)] ="gasto.valorReal"
+                                            matInput
+                                            placeholder="Ingresa el valor">
+                                    </mat-form-field>
+                                    <mat-form-field class="w50" appearance="outline">
+                                        <mat-label> Valor esperado </mat-label>
+                                        <input 
+                                            type="number"
+                                            autofocus
+                                            name="valorEsperado"
+                                            [(ngModel)] ="gasto.valorEsperado"
+                                            matInput
+                                            placeholder="Ingresa el valor">
+                                    </mat-form-field>
+                                   
+                                    <mat-form-field class="w100" appearance="outline">
+                                        <mat-label> Descripción </mat-label>
+                                        <textarea 
+                                            name="descripcion" 
+                                            matInput
+                                            [(ngModel)] ="gasto.descripcion"
+                                            placeholder="Ingrese la descripción"
+                                            rows="5">
+                                        </textarea>
+                                    </mat-form-field>
+                                    <div class="container text-center mt15">
+                                        <a class="mr-2" routerLink="/user/pagos" color="warn" mat-raised-button>Cancel</a>
+                                        <span></span>
+                                        <button mat-raised-button color="primary">Editar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+          </div>
+        </div>
+    </mat-card-content>
+</mat-card>

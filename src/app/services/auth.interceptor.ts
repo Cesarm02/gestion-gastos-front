@@ -2,11 +2,12 @@ import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { LoginService } from "./login.service";
-
+import { Router } from "@angular/router";
+import { tap } from 'rxjs/operators';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
 
-    constructor(private loginService:LoginService){
+    constructor(private loginService:LoginService, private router:Router){
 
     }
 
@@ -18,7 +19,16 @@ export class AuthInterceptor implements HttpInterceptor{
                 setHeaders: {Authorization:`Bearer ${token}`}
             })
         }
-        return next.handle(authReq);
+        return next.handle(authReq).pipe(
+            tap(
+              () => {},
+              (error) => {
+                if (error.status === 401) {  // Código de estado 401 para token expirado o no válido
+                  this.router.navigate(['/login']);  // Redirigir a la página de inicio de sesión
+                }
+              }
+            )
+        );
     }
 
 }

@@ -12,4 +12,8 @@ export class UserService {
   public añadirUsuario(user:any){
     return this.httpClient.post(`${baseUrl}/usuarios/`, user);
   }
+
+  public obtenerTodos(){
+    return this.httpClient.get(`${baseUrl}/usuarios/all`)
+  }
 }

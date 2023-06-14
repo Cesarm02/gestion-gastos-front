@@ -1,0 +1,57 @@
+<mat-card>
+    <div class="row">
+        <div class="col-md-3">
+          <div class="panel panel-box clearfix">
+            <div class="panel-icon pull-left"></div>
+            <div class="panel-value pull-right bg-green">
+              <p class="text-muted"><b>Cuentas</b></p>
+              <h2 class="margin-top">{{cuentas}}</h2>
+              <mat-icon mat-list-icon>credit_card</mat-icon>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-box clearfix">
+            <div class="panel-icon pull-left"></div>
+      
+            <div class="panel-value pull-right bg-yellow">
+              <p class="text-muted"><b>Categorías</b></p>
+              <h2 class="margin-top">{{categorias}}</h2>
+              <mat-icon mat-list-icon>list</mat-icon>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-box clearfix">
+            <div class="panel-icon pull-left"></div>
+            <div class="panel-value pull-right bg-blue">
+              <p class="text-muted"><b>Simulaciones</b></p>
+              <h2 class="margin-top">{{simulaciones}}</h2>
+              <mat-icon mat-list-icon>note_add</mat-icon>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-box clearfix">
+            <div class="panel-icon pull-left"></div>
+            <div class="panel-value pull-right bg-red">
+              <p class="text-muted"><b>Errores</b></p>
+              <h2 class="margin-top">{{errores}}</h2>
+              <mat-icon mat-list-icon>assessment</mat-icon>
+            </div>
+          </div>
+        </div>
+        <div>
+            <hr>
+            <h2>Grafica de cuentas</h2>
+            <ngx-charts-advanced-pie-chart
+            (window:resize)="onResize($event)"
+            scheme="cool"
+            [results]="cuentasGraficas"
+            [gradient]="gradient"
+          ></ngx-charts-advanced-pie-chart>
+        </div>
+        
+      </div>
+        
+</mat-card>
